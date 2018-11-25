@@ -54,7 +54,7 @@ public class CheckoutSolution {
            if(matchMap.get("F")!=2) {
                 int val = matchMap.get("F");
                 int rem =0;
-                for(int i=1;i<=val ;i++){
+                for(int i=3;i<=val ;i++){
                     if(i/2==0){
                         rem=rem+1;
                     }
