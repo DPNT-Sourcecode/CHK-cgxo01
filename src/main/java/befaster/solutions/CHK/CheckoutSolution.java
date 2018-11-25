@@ -14,22 +14,26 @@ public class CheckoutSolution {
 | D    | 15    |                        |
 | E    | 40    | 2E get one B free      |
 | F    | 10    | 2F get one F free      |
+
 | G    | 20    |                        |
 | H    | 10    | 5H for 45, 10H for 80  |
 | I    | 35    |                        |
 | J    | 60    |                        |
 | K    | 80    | 2K for 150             |
+
 | L    | 90    |                        |
 | M    | 15    |                        |
 | N    | 40    | 3N get one M free      |
 | O    | 10    |                        |
 | P    | 50    | 5P for 200             |
-| Q    | 30    | 3Q for 80              |
+| Q    | 30    | 3Q for 80
+       |
 | R    | 50    | 3R get one Q free      |
 | S    | 30    |                        |
 | T    | 20    |                        |
 | U    | 40    | 3U get one U free      |
 | V    | 50    | 2V for 90, 3V for 130  |
+
 | W    | 20    |                        |
 | X    | 90    |                        |
 | Y    | 10    |                        |
@@ -50,33 +54,30 @@ public class CheckoutSolution {
         item.put("E",40);
         item.put("F",10);
 
-        item.put("G",50);
-        item.put("H",30);
-        item.put("I",20);
-        item.put("J",15);
-        item.put("K",40);
-        item.put("L",10);
+        item.put("G",20);
+        item.put("H",10);
+        item.put("I",35);
+        item.put("J",60);
+        item.put("K",80);
+        item.put("L",90);
 
-        item.put("M",50);
-        item.put("N",30);
-        item.put("C",20);
-        item.put("D",15);
-        item.put("E",40);
-        item.put("F",10);
+        item.put("M",15);
+        item.put("N",40);
+        item.put("O",10);
+        item.put("P",50);
+        item.put("Q",30);
+        item.put("R",50);
 
-        item.put("A",50);
-        item.put("B",30);
-        item.put("C",20);
-        item.put("D",15);
-        item.put("E",40);
-        item.put("F",10);
+        item.put("S",30);
+        item.put("T",20);
+        item.put("U",40);
+        item.put("V",50);
+        item.put("W",20);
+        item.put("X",90);
 
-        item.put("A",50);
-        item.put("B",30);
-        item.put("C",20);
-        item.put("D",15);
-        item.put("E",40);
-        item.put("F",10);
+        item.put("Y",10);
+        item.put("Z",50);
+
 
         String[] list =skus.split("");
 
@@ -108,6 +109,23 @@ public class CheckoutSolution {
                }
            }
         }
+        if(matchMap.containsKey("N")){
+            int val= matchMap.get("N")/3;
+            if(matchMap.containsKey("N")){
+                if(matchMap.get("N")>=val){
+                    matchMap.replace("M",matchMap.get("M"),matchMap.get("M")-val);
+                }
+            }
+        }
+        if(matchMap.containsKey("R")){
+            int val= matchMap.get("R")/3;
+            if(matchMap.containsKey("R")){
+                if(matchMap.get("R")>=val){
+                    matchMap.replace("Q",matchMap.get("Q"),matchMap.get("Q")-val);
+                }
+            }
+        }
+
         if(matchMap.containsKey("F")){
            if(matchMap.get("F")!=2) {
                 int val = matchMap.get("F");
@@ -125,75 +143,131 @@ public class CheckoutSolution {
 
 
         }
+        if(matchMap.containsKey("U")){
+            if(matchMap.get("U")!=3) {
+                int val = matchMap.get("U");
+                int rem =0;
+                if(val==4){
+                    rem=1;
+                }
+                for(int i=4;i<=val ;i++){
+                    if(i%3==0){
+                        rem=rem+1;
+                    }
+                }
+                matchMap.replace("U", matchMap.get("U"), matchMap.get("U") - rem);
+            }
+
+
+        }
 
 
         int sum=0;
         int specialA=130;
         int specialA200=200;
         int specialB=45;
+        int specialH5 =45;
+        int special10H = 80;
+        int special2K=150;
+        int special5P=200;
+        int special3Q=80;
+        int special2V=90;
+        int special3V=130;
         for (Map.Entry<String,Integer> entry:matchMap.entrySet()
              ) {
-            if(entry.getKey().equals("A")){
-                if(entry.getValue()==5){
-                    sum = sum + specialA200;
-                }
-                else if(entry.getValue()>5){
-                    int round = Math.round(entry.getValue()/5);
-                    sum = sum + round*specialA200;
+            sum = getSum(item, sum, specialA, specialA200, entry, entry.getKey().equals("A"), 5, 3, "A");
+            sum = getSum(item, sum, specialB, entry, "B",2);
+            sum = getSum(item, sum, entry, "C");
+            sum = getSum(item, sum, entry, "D");
+            sum = getSum(item, sum, entry, "E");
+            sum = getSum(item, sum, entry, "F");
+            sum = getSum(item, sum, entry, "G");
 
-                    int bal = entry.getValue()%5;
-                    if(bal>=3){
+            sum = getSum(item, sum, specialH5, special10H, entry, matchMap.containsKey("H"), 10, 5, "H");
+            sum = getSum(item, sum, entry, "I");
+            sum = getSum(item, sum, entry, "J");
 
-                        sum=sum+(bal/3)*specialA;
-
-                       // sum = sum +  Math.round(bal/3)*specialA;
-
-                        sum= sum+bal%3*item.get("A");
-                    }else{
-                        sum=sum+bal*item.get("A");
-                    }
-
-                }else if(entry.getValue()==3){
-                    sum=sum+specialA;
-                }else if(entry.getValue()>3 && entry.getValue()<5){
-
-                    sum = sum+ specialA;
-                    int bal = entry.getValue()%3;
-                    sum= sum+bal*item.get("A");
-                }
-                else{
-                    sum= sum+entry.getValue()*item.get("A");
-                }
-            }if(entry.getKey().equals("B")){
-                if(entry.getValue()==2){
-                    sum = sum+specialB;
-                }else if(entry.getValue()>2){
-                    int round = Math.round(entry.getValue()/2);
-                    sum = sum+round*specialB;
-                    int bal = entry.getValue()%2;
-                    sum= sum+bal*item.get("B");
-
-                }else {
-                    sum=sum+entry.getValue()*item.get("B");
-                }
-
-        }
-            if(entry.getKey().equals("C")){
-                sum=sum+entry.getValue()*item.get("C");
-            }
-            if(entry.getKey().equals("D")){
-                sum=sum+entry.getValue()*item.get("D");
-            }
-            if(entry.getKey().equals("E")){
-
-                    sum=sum+entry.getValue()*item.get("E");
-            }
-            if(entry.getKey().equals("F")){
-
-                sum=sum+entry.getValue()*item.get("F");
-            }
+            sum = getSum(item, sum, special2K, entry, "K",2);
+            sum = getSum(item, sum, entry, "L");
+            sum = getSum(item, sum, entry, "M");
+            sum = getSum(item, sum, entry, "N");
+            sum = getSum(item, sum, special5P, entry, "P",5);
+            sum = getSum(item, sum, special3Q, entry, "Q",3);
+            sum = getSum(item, sum, entry, "R");
+            sum = getSum(item, sum, entry, "S");
+            sum = getSum(item, sum, entry, "T");
+            sum = getSum(item, sum, entry, "U");
+            sum = getSum(item, sum, special2V, special3V, entry, matchMap.containsKey("V"), 10, 5, "V");
+            sum = getSum(item, sum, entry, "W");
+            sum = getSum(item, sum, entry, "X");
+            sum = getSum(item, sum, entry, "Y");
+            sum = getSum(item, sum, entry, "Z");
         }
 
+        return sum;
+    }
+
+    private int getSum(Map<String, Integer> item, int sum, int specialA, int specialA200, Map.Entry<String, Integer> entry, boolean a, int i2, int i3, String a2) {
+        if (a) {
+            if (entry.getValue() == i2) {
+                sum = sum + specialA200;
+            } else if (entry.getValue() > i2) {
+                int round = Math.round(entry.getValue() / i2);
+                sum = sum + round * specialA200;
+
+                int bal = entry.getValue() % i2;
+                if (bal >= i3) {
+
+                    sum = sum + (bal / i3) * specialA;
+
+                    // sum = sum +  Math.round(bal/3)*specialA;
+
+                    sum = getSum(item, sum, bal % i3, a2);
+                } else {
+                    sum = getSum(item, sum, bal, "A");
+                }
+
+            } else if (entry.getValue() == i3) {
+                sum = sum + specialA;
+            } else if (entry.getValue() > i3 && entry.getValue() < i2) {
+
+                sum = sum + specialA;
+                int bal = entry.getValue() % i3;
+                sum = getSum(item, sum, bal, a2);
+            } else {
+                sum = getSum(item, sum, entry.getValue(), a2);
+            }
+        }
+        return sum;
+    }
+
+    private int getSum(Map<String, Integer> item, int sum, int specialB, Map.Entry<String, Integer> entry, String b,int value) {
+        if (entry.getKey().equals(b)) {
+            if (entry.getValue() == value) {
+                sum = sum + specialB;
+            } else if (entry.getValue() > value) {
+                int round = Math.round(entry.getValue() / value);
+                sum = sum + round * specialB;
+                int bal = entry.getValue() % value;
+                sum = getSum(item, sum, bal, b);
+
+            } else {
+                sum = getSum(item, sum, entry.getValue(), b);
+            }
+
+        }
+        return sum;
+    }
+
+    private int getSum(Map<String, Integer> item, int sum, Map.Entry<String, Integer> entry, String c) {
+        if (entry.getKey().equals(c)) {
+            sum = getSum(item, sum, entry.getValue(), c);
+        }
+        return sum;
+    }
+
+    private int getSum(Map<String, Integer> item, int sum, Integer value, String f) {
+        sum = sum + value * item.get(f);
         return sum;
     }
 
