@@ -218,7 +218,7 @@ public class CheckoutSolution {
             }
         }
         int nos = 0;
-        if(null !=cut | cut.size()>0){
+        if(null !=cut && cut.size()>0){
         int max = Collections.max(cut.entrySet(), (e1, e2) -> e1.getValue().compareTo(e2.getValue())).getValue();
         String key = Collections.max(cut.entrySet(), (e1, e2) -> e1.getValue().compareTo(e2.getValue())).getKey();
         if (cut.size() > 2) {
