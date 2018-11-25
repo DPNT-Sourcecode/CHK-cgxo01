@@ -200,7 +200,7 @@ public class CheckoutSolution {
             System.out.println("F:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "G");
             System.out.println("G:"+sum+" :"+entry.getValue());
-            sum = getSum(item, sum, specialH5, special10H, entry, matchMap.containsKey("H"), 10, 5, "H");
+            sum = getSum(item, sum, specialH5, special10H, entry, entry.getKey().equals("H"), 10, 5, "H");
             System.out.println("H:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "I");
             System.out.println("I:"+sum+" :"+entry.getValue());
@@ -234,7 +234,7 @@ public class CheckoutSolution {
             sum = getSum(item, sum, entry, "U");
             System.out.println("U:"+sum+" :"+entry.getValue());
 
-            sum = getSum(item, sum, special2V, special3V, entry, matchMap.containsKey("V"), 3, 2, "V");
+            sum = getSum(item, sum, special2V, special3V, entry, entry.getKey().equals("V"), 3, 2, "V");
             System.out.println("V:"+sum+" :"+entry.getValue());
 
             sum = getSum(item, sum, entry, "W");
@@ -320,7 +320,7 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+        System.out.println(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"));
         /*
  - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
   - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 4560
