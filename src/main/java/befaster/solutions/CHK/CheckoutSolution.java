@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        if(skus==null){
+        if(skus.isEmpty()){
             return -1;
         }
 
@@ -24,10 +24,12 @@ public class CheckoutSolution {
             }else
                 return -1;
         }
+        int sum=0;
         for (String val:list
              ) {
             if(item.containsKey(val)){
-                return item.get(val);
+                sum= sum+item.get(val);
+                return sum;
             }
         }
 
