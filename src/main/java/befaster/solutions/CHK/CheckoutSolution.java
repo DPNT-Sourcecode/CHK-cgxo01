@@ -209,19 +209,46 @@ public class CheckoutSolution {
             sum = getSum(item, sum, special2K, entry, "K",2);
             System.out.println("K:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "L");
+            System.out.println("L:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "M");
+            System.out.println("M:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "N");
+            System.out.println("N:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, special5P, entry, "P",5);
+            System.out.println("P:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, special3Q, entry, "Q",3);
+            System.out.println("Q:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "R");
+            System.out.println("R:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "S");
+            System.out.println("S:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "T");
+            System.out.println("T:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "U");
+            System.out.println("U:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, special2V, special3V, entry, matchMap.containsKey("V"), 3, 2, "V");
+            System.out.println("V:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "W");
+            System.out.println("W:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "X");
+            System.out.println("X:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "Y");
+            System.out.println("Y:"+sum+" :"+entry.getValue());
+
             sum = getSum(item, sum, entry, "Z");
+            System.out.println("Z:"+sum+" :"+entry.getValue());
+
         }
 
         return sum;
