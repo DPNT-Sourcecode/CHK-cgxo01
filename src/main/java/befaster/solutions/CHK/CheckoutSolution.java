@@ -78,8 +78,8 @@ public class CheckoutSolution {
         item.put("W",20);
         item.put("X",17);
 
-        item.put("Y",10);
-        item.put("Z",50);
+        item.put("Y",20);
+        item.put("Z",21);
 
         int add=0;
        /* for (Map.Entry<String,Integer> e:item.entrySet()
