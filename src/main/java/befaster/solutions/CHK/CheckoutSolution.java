@@ -158,7 +158,7 @@ public class CheckoutSolution {
                 if(val==4){
                     rem=1;
                 }
-                for(int i=4;i<=val ;i++){
+                for(int i=3;i<=val ;i++){
                     if(i%3==0){
                         rem=rem+1;
                     }
@@ -281,7 +281,7 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("UUUUU"));
+        System.out.println(checkoutSolution.checkout("UUUUUUUU"));
         /*
         - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
  - {"method":"checkout","params":["UUUUU"],"id":"CHK_R4_056"}, expected: 160, got: 200
