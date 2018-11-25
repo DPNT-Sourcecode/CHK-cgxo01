@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -185,18 +186,27 @@ public class CheckoutSolution {
         for (Map.Entry<String,Integer> entry:matchMap.entrySet()
              ) {
             sum = getSum(item, sum, specialA, specialA200, entry, entry.getKey().equals("A"), 5, 3, "A");
+            System.out.println("A:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, specialB, entry, "B",2);
+            System.out.println("B:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "C");
+            System.out.println("C:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "D");
+            System.out.println("D:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "E");
+            System.out.println("E:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "F");
+            System.out.println("F:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "G");
-
+            System.out.println("G:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, specialH5, special10H, entry, matchMap.containsKey("H"), 10, 5, "H");
+            System.out.println("H:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "I");
+            System.out.println("I:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "J");
-
+            System.out.println("J:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, special2K, entry, "K",2);
+            System.out.println("K:"+sum+" :"+entry.getValue());
             sum = getSum(item, sum, entry, "L");
             sum = getSum(item, sum, entry, "M");
             sum = getSum(item, sum, entry, "N");
@@ -282,9 +292,12 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("VVV"));
+        System.out.println(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
         /*
-         - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
+ - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
+  - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 4560
+ - {"method":"checkout","params":["LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"],"id":"CHK_R4_140"}, expected: 1880, got: 4560
+
  - {"method":"checkout","params":["UUUU"],"id":"CHK_R4_055"}, expected: 120, got: 80
  - {"method":"checkout","params":["HHHHHHHHHHH"],"id":"CHK_R4_085"}, expected: 90, got: 130
   - {"method":"checkout","params":["VV"],"id":"CHK_R4_096"}, expected: 90, got: 100
