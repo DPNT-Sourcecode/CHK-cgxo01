@@ -216,32 +216,32 @@ public class CheckoutSolution {
         return sum;
     }
 
-    private int getSum(Map<String, Integer> item, int sum, int specialA, int specialA200, Map.Entry<String, Integer> entry, boolean a, int i2, int i3, String a2) {
+    private int getSum(Map<String, Integer> item, int sum, int specialA, int specialA200, Map.Entry<String, Integer> entry, boolean a, int level1, int level2, String a2) {
         if (a) {
-            if (entry.getValue() == i2) {
+            if (entry.getValue() == level1) {
                 sum = sum + specialA200;
-            } else if (entry.getValue() > i2) {
-                int round = Math.round(entry.getValue() / i2);
+            } else if (entry.getValue() > level1) {
+                int round = Math.round(entry.getValue() / level1);
                 sum = sum + round * specialA200;
 
-                int bal = entry.getValue() % i2;
-                if (bal >= i3) {
+                int bal = entry.getValue() % level1;
+                if (bal >= level2) {
 
-                    sum = sum + (bal / i3) * specialA;
+                    sum = sum + (bal / level2) * specialA;
 
                     // sum = sum +  Math.round(bal/3)*specialA;
 
-                    sum = getSum(item, sum, bal % i3, a2);
+                    sum = getSum(item, sum, bal % level2, a2);
                 } else {
-                    sum = getSum(item, sum, bal, "A");
+                    sum = getSum(item, sum, bal, a2);
                 }
 
-            } else if (entry.getValue() == i3) {
+            } else if (entry.getValue() == level2) {
                 sum = sum + specialA;
-            } else if (entry.getValue() > i3 && entry.getValue() < i2) {
+            } else if (entry.getValue() > level2 && entry.getValue() < level1) {
 
                 sum = sum + specialA;
-                int bal = entry.getValue() % i3;
+                int bal = entry.getValue() % level2;
                 sum = getSum(item, sum, bal, a2);
             } else {
                 sum = getSum(item, sum, entry.getValue(), a2);
@@ -282,7 +282,7 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("HHHHHHHHHHH"));
+        System.out.println(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
         /*
          - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
  - {"method":"checkout","params":["UUUU"],"id":"CHK_R4_055"}, expected: 120, got: 80
