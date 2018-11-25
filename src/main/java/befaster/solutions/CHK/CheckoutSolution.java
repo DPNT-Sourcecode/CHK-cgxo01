@@ -360,7 +360,7 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVW"));
+        System.out.println(checkoutSolution.checkout("AA"));
         /*
          - {"method":"checkout","params":["STXSTX"],"id":"CHK_R5_140"}, expected: 90, got: 102
  - {"method":"checkout","params":["SSS"],"id":"CHK_R5_141"}, expected: 45, got: 40
