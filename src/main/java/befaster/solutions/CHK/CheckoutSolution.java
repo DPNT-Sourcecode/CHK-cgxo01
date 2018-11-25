@@ -3,7 +3,9 @@ package befaster.solutions.CHK;
 import befaster.runner.SolutionNotImplementedException;
 
 import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CheckoutSolution {
@@ -171,6 +173,23 @@ public class CheckoutSolution {
 
         }
 
+        //buy any 3 of (S,T,X,Y,Z) for 45
+        List<String> array = Arrays.asList("S","T","X","Y","Z");
+        int count=0;
+        int combined =0;
+        for (String s:array
+             ) {
+            if(matchMap.containsKey(s)){
+                matchMap.replace(s, matchMap.get(s), matchMap.get(s) - 1);
+                count++;
+                if(count==3){
+                    break;
+                }
+            }
+        }
+
+
+
 
         int sum=0;
         int specialA=130;
@@ -183,6 +202,9 @@ public class CheckoutSolution {
         int special3Q=80;
         int special2V=90;
         int special3V=130;
+        if(count==3){
+            sum=45;
+        }
         for (Map.Entry<String,Integer> entry:matchMap.entrySet()
              ) {
             sum = getSum(item, sum, specialA, specialA200, entry, entry.getKey().equals("A"), 5, 3, "A");
