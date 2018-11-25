@@ -39,43 +39,43 @@ public class CheckoutSolution {
 | Z    | 50    |
      */
     public Integer checkout(String skus) {
-        if(skus.isEmpty()){
+        if (skus.isEmpty()) {
             return 0;
         }
 
-        Map <String,Integer> item = new HashMap();
-        Map <String,Integer> matchMap = new HashMap();
+        Map<String, Integer> item = new HashMap();
+        Map<String, Integer> matchMap = new HashMap();
 
-        item.put("A",50);
-        item.put("B",30);
-        item.put("C",20);
-        item.put("D",15);
-        item.put("E",40);
-        item.put("F",10);
+        item.put("A", 50);
+        item.put("B", 30);
+        item.put("C", 20);
+        item.put("D", 15);
+        item.put("E", 40);
+        item.put("F", 10);
 
-        item.put("G",20);
-        item.put("H",10);
-        item.put("I",35);
-        item.put("J",60);
-        item.put("K",70);
-        item.put("L",90);
+        item.put("G", 20);
+        item.put("H", 10);
+        item.put("I", 35);
+        item.put("J", 60);
+        item.put("K", 70);
+        item.put("L", 90);
 
-        item.put("M",15);
-        item.put("N",40);
-        item.put("O",10);
-        item.put("P",50);
-        item.put("Q",30);
-        item.put("R",50);
+        item.put("M", 15);
+        item.put("N", 40);
+        item.put("O", 10);
+        item.put("P", 50);
+        item.put("Q", 30);
+        item.put("R", 50);
 
-        item.put("S",20);
-        item.put("T",20);
-        item.put("U",40);
-        item.put("V",50);
-        item.put("W",20);
-        item.put("X",17);
+        item.put("S", 20);
+        item.put("T", 20);
+        item.put("U", 40);
+        item.put("V", 50);
+        item.put("W", 20);
+        item.put("X", 17);
 
-        item.put("Y",20);
-        item.put("Z",21);
+        item.put("Y", 20);
+        item.put("Z", 21);
 
         /*
         +------+-------+---------------------------------+
@@ -113,86 +113,85 @@ public class CheckoutSolution {
 | Z    | 21    | buy any 3 of (S,T,X,Y,Z) for 45 |
 +------+-------+---------------------------------+
          */
-        int add=0;
+        int add = 0;
        /* for (Map.Entry<String,Integer> e:item.entrySet()
              ) {
             System.out.println(e.getKey() + " " +e.getValue());
             add=add+e.getValue();
         }
         System.out.println("sum:"+add);*/
-        String[] list =skus.split("");
+        String[] list = skus.split("");
 
-        if(list.length==1){
-            if(item.containsKey(skus)) {
+        if (list.length == 1) {
+            if (item.containsKey(skus)) {
                 return item.get(skus);
-            }else
+            } else
                 return -1;
         }
 
-        for (String match:list
-             ) {
-            if(matchMap.containsKey(match)){
-                matchMap.replace(match,matchMap.get(match),matchMap.get(match)+1);
-            }
-            else {
-                if(item.containsKey(match)) {
+        for (String match : list
+        ) {
+            if (matchMap.containsKey(match)) {
+                matchMap.replace(match, matchMap.get(match), matchMap.get(match) + 1);
+            } else {
+                if (item.containsKey(match)) {
                     matchMap.put(match, 1);
-                }else{
-                    return  -1;
+                } else {
+                    return -1;
                 }
             }
         }
-        if(matchMap.containsKey("E")){
-           int val= matchMap.get("E")/2;
-           if(matchMap.containsKey("B")){
-               if(matchMap.get("B")>=val){
-                   matchMap.replace("B",matchMap.get("B"),matchMap.get("B")-val);
-               }
-           }
-        }
-        if(matchMap.containsKey("N")){
-            int val= matchMap.get("N")/3;
-            if(matchMap.containsKey("N")){
-                if(matchMap.get("N")>=val){
-                    if(matchMap.containsKey("M"))
-                    matchMap.replace("M",matchMap.get("M"),matchMap.get("M")-val);
+        if (matchMap.containsKey("E")) {
+            int val = matchMap.get("E") / 2;
+            if (matchMap.containsKey("B")) {
+                if (matchMap.get("B") >= val) {
+                    matchMap.replace("B", matchMap.get("B"), matchMap.get("B") - val);
                 }
             }
         }
-        if(matchMap.containsKey("R")){
-            int val= matchMap.get("R")/3;
-            if(matchMap.containsKey("R")){
-                if(matchMap.get("R")>=val){
-                    if(matchMap.containsKey("Q"))
-                    matchMap.replace("Q",matchMap.get("Q"),matchMap.get("Q")-val);
+        if (matchMap.containsKey("N")) {
+            int val = matchMap.get("N") / 3;
+            if (matchMap.containsKey("N")) {
+                if (matchMap.get("N") >= val) {
+                    if (matchMap.containsKey("M"))
+                        matchMap.replace("M", matchMap.get("M"), matchMap.get("M") - val);
+                }
+            }
+        }
+        if (matchMap.containsKey("R")) {
+            int val = matchMap.get("R") / 3;
+            if (matchMap.containsKey("R")) {
+                if (matchMap.get("R") >= val) {
+                    if (matchMap.containsKey("Q"))
+                        matchMap.replace("Q", matchMap.get("Q"), matchMap.get("Q") - val);
                 }
             }
         }
 
-        if(matchMap.containsKey("F")){
-           if(matchMap.get("F")!=2) {
+        if (matchMap.containsKey("F")) {
+            if (matchMap.get("F") != 2) {
                 int val = matchMap.get("F");
-                int rem =0;
-                if(val==3){
-                    rem=1;
+                int rem = 0;
+                if (val == 3) {
+                    rem = 1;
                 }
-                for(int i=3;i<=val ;i++){
-                    if(i%2==0){
-                        rem=rem+1;
+                for (int i = 3; i <= val; i++) {
+                    if (i % 2 == 0) {
+                        rem = rem + 1;
                     }
                 }
-                    matchMap.replace("F", matchMap.get("F"), matchMap.get("F") - rem);
-                }
+                matchMap.replace("F", matchMap.get("F"), matchMap.get("F") - rem);
+            }
 
 
         }
-        if(matchMap.containsKey("U")){
+        if (matchMap.containsKey("U")) {
             int val = matchMap.get("U");
-            if(val>3) {
-                int rem =0;
-                if(val==4){
-                    rem=1;
-                }else {
+            if (val > 3) {
+                int rem = 0;
+                if (val == 4) {
+                    rem = 1;
+                } else {
                     for (int i = 3; i <= val; i++) {
                         if (i % 3 == 0) {
                             rem = rem + 1;
@@ -206,46 +205,47 @@ public class CheckoutSolution {
         }
 
         //buy any 3 of (S,T,X,Y,Z) for 45
-        List<String> array = Arrays.asList("S","T","X","Y","Z");
-        Map<String,Integer> cut = new HashMap<>();
-        int count=0;
-        int combined =0;
-       // if(matchMap.containsKey("S"))
-        for (String s:array
+        List<String> array = Arrays.asList("S", "T", "X", "Y", "Z");
+        Map<String, Integer> cut = new HashMap<>();
+        int count = 0;
+        int combined = 0;
+        // if(matchMap.containsKey("S"))
+        for (String s : array
         ) {
-            if(matchMap.containsKey(s)) {
+            if (matchMap.containsKey(s)) {
                 //  matchMap.replace(s, matchMap.get(s), matchMap.get(s) - 1);
                 cut.put(s, matchMap.get(s));
             }
         }
-        int nos =0;
-        int max= Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getValue();
-        String key = Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getKey();
-        if(cut.size()>2 ){
-            for(int i=0;i<max;i++){
-                for (String s:array
+        int nos = 0;
+        if(cut!=null){
+        int max = Collections.max(cut.entrySet(), (e1, e2) -> e1.getValue().compareTo(e2.getValue())).getValue();
+        String key = Collections.max(cut.entrySet(), (e1, e2) -> e1.getValue().compareTo(e2.getValue())).getKey();
+        if (cut.size() > 2) {
+            for (int i = 0; i < max; i++) {
+                for (String s : array
                 ) {
-                    if(matchMap.containsKey(s)){
-                          matchMap.replace(s, matchMap.get(s), matchMap.get(s) - 1);
-                        cut.put(s,matchMap.get(s));
+                    if (matchMap.containsKey(s)) {
+                        matchMap.replace(s, matchMap.get(s), matchMap.get(s) - 1);
+                        cut.put(s, matchMap.get(s));
                         count++;
-                        if(count==3){
+                        if (count == 3) {
                             break;
                         }
                     }
                 }
                 nos++;
             }
-            }
+        }
 
-            if( max>2 || cut.size()==1){
-                nos=max/3;
+        if (max > 2 || cut.size() == 1) {
+            nos = max / 3;
 
-                matchMap.replace(key, matchMap.get(key), matchMap.get(key) - nos*3);
+            matchMap.replace(key, matchMap.get(key), matchMap.get(key) - nos * 3);
 
-            }
+        }
 
-
+    }
 
         int sum=0;
         int specialA=130;
