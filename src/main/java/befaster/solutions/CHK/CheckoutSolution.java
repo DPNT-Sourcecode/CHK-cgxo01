@@ -219,8 +219,9 @@ public class CheckoutSolution {
             }
         }
         int nos =0;
-        if(cut.size()>2){
-            int max= Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getValue();
+        int max= Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getValue();
+        if(cut.size()>2 || max>2){
+           // int max= Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getValue();
             for(int i=0;i<max;i++){
                 for (String s:array
                 ) {
