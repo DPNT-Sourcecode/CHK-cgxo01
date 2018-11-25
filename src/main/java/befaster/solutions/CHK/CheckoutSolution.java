@@ -29,12 +29,11 @@ public class CheckoutSolution {
              ) {
             if(item.containsKey(val)){
                 sum= sum+item.get(val);
-                return sum;
             }else{
-                return -1;
+                sum= -1;
             }
         }
 
-        return -1;
+        return sum;
     }
 }
