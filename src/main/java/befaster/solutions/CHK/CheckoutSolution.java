@@ -79,12 +79,12 @@ public class CheckoutSolution {
         item.put("Z",50);
 
         int add=0;
-        for (Map.Entry<String,Integer> e:item.entrySet()
+       /* for (Map.Entry<String,Integer> e:item.entrySet()
              ) {
             System.out.println(e.getKey() + " " +e.getValue());
             add=add+e.getValue();
         }
-        System.out.println("sum:"+add);
+        System.out.println("sum:"+add);*/
         String[] list =skus.split("");
 
         if(list.length==1){
