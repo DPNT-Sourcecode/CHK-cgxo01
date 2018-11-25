@@ -19,6 +19,7 @@ public class CheckoutSolution {
         item.put("C",20);
         item.put("D",15);
         item.put("E",40);
+        item.put("F",10);
         String[] list =skus.split("");
 
         if(list.length==1){
@@ -48,6 +49,13 @@ public class CheckoutSolution {
                    matchMap.replace("B",matchMap.get("B"),matchMap.get("B")-val);
                }
            }
+        }
+        if(matchMap.containsKey("F")){
+            int val= matchMap.get("F")/2;
+                if(matchMap.get("F")>=val){
+                    matchMap.replace("F",matchMap.get("F"),matchMap.get("F")-val);
+                }
+
         }
 
 
@@ -111,11 +119,27 @@ public class CheckoutSolution {
             if(entry.getKey().equals("E")){
 
                     sum=sum+entry.getValue()*item.get("E");
-                }
+            }
+            if(entry.getKey().equals("F")){
+
+                sum=sum+entry.getValue()*item.get("F");
+            }
         }
 
         return sum;
     }
 
-
+    public static void main(String[] args) {
+        CheckoutSolution checkoutSolution = new CheckoutSolution();
+        System.out.println(checkoutSolution.checkout("EEB"));
+        /*
+        - {"method":"checkout","params":["AAA"],"id":"CHK_R2_015"}, expected: 130, got: 150
+ - {"method":"checkout","params":["AAAA"],"id":"CHK_R2_016"}, expected: 180, got: 200
+ - {"method":"checkout","params":["AAAAAA"],"id":"CHK_R2_018"}, expected: 250, got: 200
+You ha
+- {"method":"checkout","params":["AAAAAAAA"],"id":"CHK_R2_020"}, expected: 330, got: 460
+ - {"method":"checkout","params":["AAAAAAAAA"],"id":"CHK_R2_021"}, expected: 380, got: 510
+ - {"method":"checkout","params":["EEB"],"id":"CHK_R2_024"}, expected: 80, got: 110
+         */
+    }
 }
