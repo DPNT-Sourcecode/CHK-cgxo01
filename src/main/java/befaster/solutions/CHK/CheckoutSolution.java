@@ -220,8 +220,8 @@ public class CheckoutSolution {
         }
         int nos =0;
         int max= Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getValue();
-        if(cut.size()>2 || max>2){
-           // int max= Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getValue();
+        String key = Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getKey();
+        if(cut.size()>2 ){
             for(int i=0;i<max;i++){
                 for (String s:array
                 ) {
@@ -238,7 +238,12 @@ public class CheckoutSolution {
             }
             }
 
+            if( max>2 || cut.size()==1){
+                nos=max/3;
 
+                matchMap.replace(key, matchMap.get(key), matchMap.get(key) - nos*3);
+
+            }
 
 
 
