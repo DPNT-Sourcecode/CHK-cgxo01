@@ -10,21 +10,24 @@ public class CheckoutSolution {
         if(skus==null){
             return -1;
         }
+
         Map <String,Integer> item = new HashMap();
+
         item.put("A",50);
         item.put("B",30);
         item.put("C",20);
         item.put("D",15);
         String[] list =skus.split(",");
-        for (String val:list
-             ) {
-            if(item.containsKey(val)){
-                return -1;
-            }
-        }
         if(list.length==1){
             return item.get(skus);
         }
+        for (String val:list
+             ) {
+            if(item.containsKey(val)){
+                return item.get(val);
+            }
+        }
+
         return -1;
     }
 }
