@@ -113,6 +113,7 @@ public class CheckoutSolution {
             int val= matchMap.get("N")/3;
             if(matchMap.containsKey("N")){
                 if(matchMap.get("N")>=val){
+                    if(matchMap.containsKey("M"))
                     matchMap.replace("M",matchMap.get("M"),matchMap.get("M")-val);
                 }
             }
@@ -121,6 +122,7 @@ public class CheckoutSolution {
             int val= matchMap.get("R")/3;
             if(matchMap.containsKey("R")){
                 if(matchMap.get("R")>=val){
+                    if(matchMap.containsKey("Q"))
                     matchMap.replace("Q",matchMap.get("Q"),matchMap.get("Q")-val);
                 }
             }
