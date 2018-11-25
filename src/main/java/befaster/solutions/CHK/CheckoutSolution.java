@@ -81,6 +81,42 @@ public class CheckoutSolution {
         item.put("Y",20);
         item.put("Z",21);
 
+        /*
+        +------+-------+---------------------------------+
+| Item | Price | Special offers                  |
++------+-------+---------------------------------+
+| A    | 50    | 3A for 130, 5A for 200          |
+| B    | 30    | 2B for 45                       |
+| C    | 20    |                                 |
+| D    | 15    |                                 |
+| E    | 40    | 2E get one B free               |
+| F    | 10    | 2F get one F free               |
+| G    | 20    |                                 |
+
+| H    | 10    | 5H for 45, 10H for 80           |
+| I    | 35    |                                 |
+| J    | 60    |                                 |
+| K    | 70    | 2K for 120                      |
+| L    | 90    |                                 |
+
+| M    | 15    |                                 |
+| N    | 40    | 3N get one M free               |
+| O    | 10    |                                 |
+| P    | 50    | 5P for 200                      |
+| Q    | 30    | 3Q for 80                       |
+| R    | 50    | 3R get one Q free               |
+
+| S    | 20    | buy any 3 of (S,T,X,Y,Z) for 45 |
+| T    | 20    | buy any 3 of (S,T,X,Y,Z) for 45 |
+| U    | 40    | 3U get one U free               |
+| V    | 50    | 2V for 90, 3V for 130           |
+| W    | 20    |                                 |
+
+| X    | 17    | buy any 3 of (S,T,X,Y,Z) for 45 |
+| Y    | 20    | buy any 3 of (S,T,X,Y,Z) for 45 |
+| Z    | 21    | buy any 3 of (S,T,X,Y,Z) for 45 |
++------+-------+---------------------------------+
+         */
         int add=0;
        /* for (Map.Entry<String,Integer> e:item.entrySet()
              ) {
@@ -197,7 +233,7 @@ public class CheckoutSolution {
         int specialB=45;
         int specialH5 =45;
         int special10H = 80;
-        int special2K=150;
+        int special2K=120;
         int special5P=200;
         int special3Q=80;
         int special2V=90;
@@ -304,11 +340,14 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("K"));
+        System.out.println(checkoutSolution.checkout("KKK"));
         /*
          - {"method":"checkout","params":["K"],"id":"CHK_R5_013"}, expected: 70, got: 80
  - {"method":"checkout","params":["S"],"id":"CHK_R5_021"}, expected: 20, got: 30
  - {"method":"checkout","params":["X"],"id":"CHK_R5_026"}, expected: 17, got: 90
+  - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVW"],"id":"CHK_R5_033"}, expected: 795, got: 755
+ - {"method":"checkout","params":["KK"],"id":"CHK_R5_096"}, expected: 120, got: 150
+ - {"method":"checkout","params":["KKK"],"id":"CHK_R5_097"}, expected: 190, got: 220
 
  - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
   - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 4560
