@@ -304,8 +304,12 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"));
+        System.out.println(checkoutSolution.checkout("K"));
         /*
+         - {"method":"checkout","params":["K"],"id":"CHK_R5_013"}, expected: 70, got: 80
+ - {"method":"checkout","params":["S"],"id":"CHK_R5_021"}, expected: 20, got: 30
+ - {"method":"checkout","params":["X"],"id":"CHK_R5_026"}, expected: 17, got: 90
+
  - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
   - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 4560
  - {"method":"checkout","params":["LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"],"id":"CHK_R4_140"}, expected: 1880, got: 4560
