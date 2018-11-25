@@ -44,7 +44,7 @@ public class SendCommandToServer {
      *
      *   You are encouraged to change this project as you please:
      *        * You can use your preferred libraries.
-     *        * You can use your own test framework.d
+     *        * You can use your own test framework.
      *        * You can change the file structure.
      *        * Anything really, provided that this file stays runnable.
      *
