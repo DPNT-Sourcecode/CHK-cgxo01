@@ -8,7 +8,7 @@ import java.util.Map;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
         if(skus.isEmpty()){
-            return -1;
+            return 0;
         }
 
         Map <String,Integer> item = new HashMap();
@@ -30,6 +30,8 @@ public class CheckoutSolution {
             if(item.containsKey(val)){
                 sum= sum+item.get(val);
                 return sum;
+            }else{
+                return -1;
             }
         }
 
