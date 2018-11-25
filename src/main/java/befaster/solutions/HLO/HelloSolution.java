@@ -4,6 +4,9 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class HelloSolution {
     public String hello(String friendName) {
-        throw new SolutionNotImplementedException();
+        if(friendName== null) {
+            throw new SolutionNotImplementedException();
+        }
+        return "Hello "+friendName;
     }
-}
+}
