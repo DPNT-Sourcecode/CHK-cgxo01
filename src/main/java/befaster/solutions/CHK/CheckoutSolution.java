@@ -212,6 +212,7 @@ public class CheckoutSolution {
         List<String> array = Arrays.asList("S","T","X","Y","Z");
         int count=0;
         int combined =0;
+        if(matchMap.containsKey("S"))
         for (String s:array
              ) {
             if(matchMap.containsKey(s)){
