@@ -18,6 +18,7 @@ public class CheckoutSolution {
         item.put("B",30);
         item.put("C",20);
         item.put("D",15);
+        item.put("E",40);
         String[] list =skus.split("");
 
         if(list.length==1){
@@ -40,21 +41,38 @@ public class CheckoutSolution {
                 }
             }
         }
+        if(matchMap.get("E")>2){
+           int val= matchMap.get("E")/2;
+           if(matchMap.containsKey("B")){
+               if(matchMap.get("B")>=val){
+                   matchMap.replace("B",matchMap.get("B"),matchMap.get("B")-val);
+               }
+           }
+        }
 
 
         int sum=0;
         int specialA=130;
+        int specialA200=200;
         int specialB=45;
         for (Map.Entry<String,Integer> entry:matchMap.entrySet()
              ) {
             if(entry.getKey().equals("A")){
-                if(entry.getValue()==3){
-                    sum = sum + specialA;
-                }else if(entry.getValue()>3){
-                    int round = Math.round(entry.getValue()/3);
-                    sum = sum + round*specialA;
+                if(entry.getValue()==5){
+                    sum = sum + specialA200;
+                }
+                else if(entry.getValue()>5){
+                    int round = Math.round(entry.getValue()/5);
+                    sum = sum + round*specialA200;
+
                     int bal = entry.getValue()%3;
-                    sum= sum+bal*item.get("A");
+                    if(bal>3){
+                        sum=sum+specialA;
+
+                        sum = sum +  Math.round(bal/3)*specialA;
+
+                        sum= sum+bal%3*item.get("A");
+                    }
 
                 }else{
                     sum= sum+entry.getValue()*item.get("A");
@@ -79,6 +97,10 @@ public class CheckoutSolution {
             if(entry.getKey().equals("D")){
                 sum=sum+entry.getValue()*item.get("D");
             }
+            if(entry.getKey().equals("E")){
+
+                    sum=sum+entry.getValue()*item.get("E");
+                }
         }
 
         return sum;
