@@ -55,11 +55,10 @@ public class CheckoutSolution {
                 int val = matchMap.get("F");
                 int rem =0;
                 for(int i=3;i<=val ;i++){
-                    if(i/2==0){
+                    if(i%2==0){
                         rem=rem+1;
                     }
                 }
-               // if (matchMap.get("F") >= val) {
                     matchMap.replace("F", matchMap.get("F"), matchMap.get("F") - rem);
                 }
 
