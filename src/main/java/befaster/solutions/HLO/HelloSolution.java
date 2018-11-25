@@ -7,6 +7,6 @@ public class HelloSolution {
         if(friendName== null) {
             throw new SolutionNotImplementedException();
         }
-        return "Hello "+friendName;
+        return "Hello World";
     }
 }
