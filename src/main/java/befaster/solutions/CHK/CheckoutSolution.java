@@ -17,7 +17,7 @@ public class CheckoutSolution {
         item.put("B",30);
         item.put("C",20);
         item.put("D",15);
-        String[] list =skus.split(",");
+        String[] list =skus.split("");
         if(list.length==1){
             if(item.containsKey(skus)) {
                 return item.get(skus);
