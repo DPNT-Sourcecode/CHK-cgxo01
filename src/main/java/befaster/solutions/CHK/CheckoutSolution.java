@@ -206,7 +206,7 @@ public class CheckoutSolution {
             sum = getSum(item, sum, entry, "S");
             sum = getSum(item, sum, entry, "T");
             sum = getSum(item, sum, entry, "U");
-            sum = getSum(item, sum, special2V, special3V, entry, matchMap.containsKey("V"), 10, 5, "V");
+            sum = getSum(item, sum, special2V, special3V, entry, matchMap.containsKey("V"), 3, 2, "V");
             sum = getSum(item, sum, entry, "W");
             sum = getSum(item, sum, entry, "X");
             sum = getSum(item, sum, entry, "Y");
@@ -282,11 +282,13 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+        System.out.println(checkoutSolution.checkout("VV"));
         /*
          - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
  - {"method":"checkout","params":["UUUU"],"id":"CHK_R4_055"}, expected: 120, got: 80
  - {"method":"checkout","params":["HHHHHHHHHHH"],"id":"CHK_R4_085"}, expected: 90, got: 130
+  - {"method":"checkout","params":["VV"],"id":"CHK_R4_096"}, expected: 90, got: 100
+ - {"method":"checkout","params":["VVV"],"id":"CHK_R4_097"}, expected: 130, got: 150
 
         - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
  - {"method":"checkout","params":["UUUUU"],"id":"CHK_R4_056"}, expected: 160, got: 200
