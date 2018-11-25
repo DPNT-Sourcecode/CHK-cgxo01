@@ -30,7 +30,7 @@ public class CheckoutSolution {
         for (String match:list
              ) {
             if(matchMap.containsKey(match)){
-                matchMap.replace(match,matchMap.get(match),matchMap.get(match+1));
+                matchMap.replace(match,matchMap.get(match),matchMap.get(match)+1);
             }
             else {
                 if(item.containsKey(match)) {
