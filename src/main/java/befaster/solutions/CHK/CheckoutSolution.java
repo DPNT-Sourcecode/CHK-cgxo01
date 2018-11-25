@@ -67,9 +67,11 @@ public class CheckoutSolution {
                     sum= sum+item.get("B");
 
                 }
-            }else if(!(entry.getKey().equals("A")) && !(entry.getKey().equals("B"))) {
-                sum = sum + item.get(entry.getKey()) * entry.getValue();
-            }
+
+
+        }
+
+            sum = sum + item.get(entry.getKey()) * entry.getValue();
         }
         /*for (String val:list
              ) {
@@ -85,7 +87,7 @@ public class CheckoutSolution {
     }
     public static void main(String[] args) {
         CheckoutSolution test =new  CheckoutSolution();
-        System.out.println(test.checkout("AAAB"));
+        System.out.println(test.checkout("AAA"));
     }
 
     /*
