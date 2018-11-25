@@ -2,10 +2,7 @@ package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CheckoutSolution {
 
@@ -210,19 +207,36 @@ public class CheckoutSolution {
 
         //buy any 3 of (S,T,X,Y,Z) for 45
         List<String> array = Arrays.asList("S","T","X","Y","Z");
+        Map<String,Integer> cut = new HashMap<>();
         int count=0;
         int combined =0;
-        if(matchMap.containsKey("S"))
+       // if(matchMap.containsKey("S"))
         for (String s:array
-             ) {
-            if(matchMap.containsKey(s)){
-                matchMap.replace(s, matchMap.get(s), matchMap.get(s) - 1);
-                count++;
-                if(count==3){
-                    break;
-                }
+        ) {
+            if(matchMap.containsKey(s)) {
+                //  matchMap.replace(s, matchMap.get(s), matchMap.get(s) - 1);
+                cut.put(s, matchMap.get(s));
             }
         }
+        int nos =0;
+        if(cut.size()>3){
+            int max= Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getValue();
+            for(int i=0;i<max;i++){
+                for (String s:array
+                ) {
+                    if(matchMap.containsKey(s)){
+                          matchMap.replace(s, matchMap.get(s), matchMap.get(s) - 1);
+                        cut.put(s,matchMap.get(s));
+                        count++;
+                        if(count==3){
+                            break;
+                        }
+                    }
+                }
+                nos++;
+            }
+            }
+
 
 
 
@@ -238,8 +252,8 @@ public class CheckoutSolution {
         int special3Q=80;
         int special2V=90;
         int special3V=130;
-        if(count==3){
-            sum=45;
+        if(nos>0){
+            sum=nos*45;
         }
         for (Map.Entry<String,Integer> entry:matchMap.entrySet()
              ) {
