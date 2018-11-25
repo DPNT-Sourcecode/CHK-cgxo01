@@ -4,6 +4,7 @@ import befaster.runner.SolutionNotImplementedException;
 
 import java.sql.SQLOutput;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class CheckoutSolution {
@@ -45,8 +46,8 @@ public class CheckoutSolution {
             return 0;
         }
 
-        Map <String,Integer> item = new HashMap();
-        Map <String,Integer> matchMap = new HashMap();
+        Map <String,Integer> item = new LinkedHashMap<>();
+        Map <String,Integer> matchMap = new LinkedHashMap();
 
         item.put("A",50);
         item.put("B",30);
