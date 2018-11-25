@@ -56,6 +56,8 @@ public class CheckoutSolution {
                     int bal = entry.getValue()%3;
                     sum= sum+item.get("A");
 
+                }else{
+                    sum= sum+entry.getValue()*item.get("A");
                 }
             }if(entry.getKey().equals("B")){
                 if(entry.getValue()==2){
@@ -66,33 +68,20 @@ public class CheckoutSolution {
                     int bal = entry.getValue()%2;
                     sum= sum+item.get("B");
 
+                }else {
+                    sum=sum+entry.getValue()*item.get("B");
                 }
-
-
-        }
-
-            sum = sum + item.get(entry.getKey()) * entry.getValue();
-        }
-        /*for (String val:list
-             ) {
-            if(item.containsKey(val)){
-                sum= sum+item.get(val);
-            }else{
-                sum= -1;
-                break;
+            if(entry.getKey().equals("C")){
+                sum=sum+entry.getValue()*item.get("C");
             }
-        }*/
+            if(entry.getKey().equals("D")){
+                sum=sum+entry.getValue()*item.get("D");
+            }
+        }
+
+        }
 
         return sum;
     }
-    public static void main(String[] args) {
-        CheckoutSolution test =new  CheckoutSolution();
-        System.out.println(test.checkout("AAA"));
-    }
 
-    /*
-     {"method":"checkout","params":["AAA"],"id":"CHK_R1_014"}, expected: 130, got: 280
- - {"method":"checkout","params":["AAAA"],"id":"CHK_R1_015"}, expected: 180, got: 380
- - {"method":"checkout","params":["AAAAA"],"id":"CHK_R1_016"}, expected: 230, got: 430
-     */
 }
