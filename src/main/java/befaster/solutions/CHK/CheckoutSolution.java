@@ -219,7 +219,7 @@ public class CheckoutSolution {
             }
         }
         int nos =0;
-        if(cut.size()>3){
+        if(cut.size()>2){
             int max= Collections.max(cut.entrySet(),(e1, e2)-> e1.getValue().compareTo(e2.getValue())).getValue();
             for(int i=0;i<max;i++){
                 for (String s:array
@@ -354,7 +354,7 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("STXSTX"));
+        System.out.println(checkoutSolution.checkout("SSS"));
         /*
          - {"method":"checkout","params":["STXSTX"],"id":"CHK_R5_140"}, expected: 90, got: 102
  - {"method":"checkout","params":["SSS"],"id":"CHK_R5_141"}, expected: 45, got: 40
