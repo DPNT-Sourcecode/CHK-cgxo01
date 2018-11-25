@@ -152,8 +152,8 @@ public class CheckoutSolution {
 
         }
         if(matchMap.containsKey("U")){
-            if(matchMap.get("U")!=3) {
-                int val = matchMap.get("U");
+            int val = matchMap.get("U");
+            if(val!=3) {
                 int rem =0;
                 if(val==4){
                     rem=1;
