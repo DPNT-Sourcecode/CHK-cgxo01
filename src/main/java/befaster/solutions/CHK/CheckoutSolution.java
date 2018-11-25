@@ -117,17 +117,5 @@ public class CheckoutSolution {
         return sum;
     }
 
-    public static void main(String[] args) {
-        CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("EEB"));
-        /*
-        - {"method":"checkout","params":["AAA"],"id":"CHK_R2_015"}, expected: 130, got: 150
- - {"method":"checkout","params":["AAAA"],"id":"CHK_R2_016"}, expected: 180, got: 200
- - {"method":"checkout","params":["AAAAAA"],"id":"CHK_R2_018"}, expected: 250, got: 200
-You ha
-- {"method":"checkout","params":["AAAAAAAA"],"id":"CHK_R2_020"}, expected: 330, got: 460
- - {"method":"checkout","params":["AAAAAAAAA"],"id":"CHK_R2_021"}, expected: 380, got: 510
- - {"method":"checkout","params":["EEB"],"id":"CHK_R2_024"}, expected: 80, got: 110
-         */
-    }
+
 }
