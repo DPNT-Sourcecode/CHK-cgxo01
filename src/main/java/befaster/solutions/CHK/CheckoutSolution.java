@@ -74,7 +74,15 @@ public class CheckoutSolution {
                         sum= sum+bal%3*item.get("A");
                     }
 
-                }else{
+                }else if(entry.getValue()==3){
+                    sum=sum+specialA;
+                }else if(entry.getValue()>3 && entry.getValue()<5){
+
+                    sum = sum+ specialA;
+                    int bal = entry.getValue()%3;
+                    sum= sum+bal*item.get("A");
+                }
+                else{
                     sum= sum+entry.getValue()*item.get("A");
                 }
             }if(entry.getKey().equals("B")){
@@ -106,5 +114,14 @@ public class CheckoutSolution {
         return sum;
     }
 
-
+    public static void main(String[] args) {
+        CheckoutSolution checkoutSolution = new CheckoutSolution();
+        System.out.println(checkoutSolution.checkout("AAA"));
+        /*
+        - {"method":"checkout","params":["AAA"],"id":"CHK_R2_015"}, expected: 130, got: 150
+ - {"method":"checkout","params":["AAAA"],"id":"CHK_R2_016"}, expected: 180, got: 200
+ - {"method":"checkout","params":["AAAAAA"],"id":"CHK_R2_018"}, expected: 250, got: 200
+You ha
+         */
+    }
 }
