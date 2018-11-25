@@ -73,6 +73,8 @@ public class CheckoutSolution {
                         sum = sum +  Math.round(bal/3)*specialA;
 
                         sum= sum+bal%3*item.get("A");
+                    }else{
+                        sum=sum+bal*item.get("A");
                     }
 
                 }else if(entry.getValue()==3){
