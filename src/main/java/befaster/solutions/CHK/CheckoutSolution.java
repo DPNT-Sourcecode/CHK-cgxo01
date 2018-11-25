@@ -19,7 +19,10 @@ public class CheckoutSolution {
         item.put("D",15);
         String[] list =skus.split(",");
         if(list.length==1){
-            return item.get(skus);
+            if(item.containsKey(skus)) {
+                return item.get(skus);
+            }else
+                return -1;
         }
         for (String val:list
              ) {
