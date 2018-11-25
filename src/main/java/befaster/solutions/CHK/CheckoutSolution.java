@@ -61,14 +61,15 @@ public class CheckoutSolution {
                 if(entry.getValue()==2){
                     sum = sum+specialB;
                 }else if(entry.getValue()>2){
-                    int round = Math.round(entry.getValue()/3);
+                    int round = Math.round(entry.getValue()/2);
                     sum = sum+round*specialB;
-                    int bal = entry.getValue()%3;
-                    sum= sum+item.get("A");
+                    int bal = entry.getValue()%2;
+                    sum= sum+item.get("B");
 
                 }
+            }else {
+                sum = sum + item.get(entry.getKey()) * entry.getValue();
             }
-            sum=sum+item.get(entry.getKey())*entry.getValue();
         }
         /*for (String val:list
              ) {
