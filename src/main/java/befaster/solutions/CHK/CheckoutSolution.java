@@ -61,7 +61,7 @@ public class CheckoutSolution {
         item.put("H",10);
         item.put("I",35);
         item.put("J",60);
-        item.put("K",80);
+        item.put("K",70);
         item.put("L",90);
 
         item.put("M",15);
@@ -71,12 +71,12 @@ public class CheckoutSolution {
         item.put("Q",30);
         item.put("R",50);
 
-        item.put("S",30);
+        item.put("S",20);
         item.put("T",20);
         item.put("U",40);
         item.put("V",50);
         item.put("W",20);
-        item.put("X",90);
+        item.put("X",17);
 
         item.put("Y",10);
         item.put("Z",50);
