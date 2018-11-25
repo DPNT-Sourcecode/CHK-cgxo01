@@ -65,9 +65,10 @@ public class CheckoutSolution {
                     int round = Math.round(entry.getValue()/5);
                     sum = sum + round*specialA200;
 
-                    int bal = entry.getValue()%3;
-                    if(bal>3){
-                        sum=sum+specialA;
+                    int bal = entry.getValue()%5;
+                    if(bal>=3){
+
+                        sum=sum+(bal/3)*specialA;
 
                         sum = sum +  Math.round(bal/3)*specialA;
 
