@@ -10,10 +10,10 @@ public class SumSolution {
 
         if(x <0 && y <0){
             throw new NegativeNumberNotSupportedException();
-        }
-        if(x>100 || y>100){
+        }else if(x>100 || y>100){
             throw new NumberLimitExceedException();
         }
+
         return x+y;
 
     }
