@@ -282,7 +282,7 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("VV"));
+        System.out.println(checkoutSolution.checkout("VVV"));
         /*
          - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
  - {"method":"checkout","params":["UUUU"],"id":"CHK_R4_055"}, expected: 120, got: 80
