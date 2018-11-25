@@ -70,7 +70,7 @@ public class CheckoutSolution {
 
                         sum=sum+(bal/3)*specialA;
 
-                        sum = sum +  Math.round(bal/3)*specialA;
+                       // sum = sum +  Math.round(bal/3)*specialA;
 
                         sum= sum+bal%3*item.get("A");
                     }else{
@@ -119,7 +119,7 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("AAAAAAAA"));
+        System.out.println(checkoutSolution.checkout("EEB"));
         /*
         - {"method":"checkout","params":["AAA"],"id":"CHK_R2_015"}, expected: 130, got: 150
  - {"method":"checkout","params":["AAAA"],"id":"CHK_R2_016"}, expected: 180, got: 200
