@@ -67,7 +67,7 @@ public class CheckoutSolution {
                     sum= sum+item.get("B");
 
                 }
-            }else {
+            }else if(!(entry.getKey().equals("A")) || !(entry.getKey().equals("B"))) {
                 sum = sum + item.get(entry.getKey()) * entry.getValue();
             }
         }
