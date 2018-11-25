@@ -339,8 +339,11 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVW"));
+        System.out.println(checkoutSolution.checkout("STXSTX"));
         /*
+         - {"method":"checkout","params":["STXSTX"],"id":"CHK_R5_140"}, expected: 90, got: 102
+ - {"method":"checkout","params":["SSS"],"id":"CHK_R5_141"}, expected: 45, got: 40
+
          - {"method":"checkout","params":["K"],"id":"CHK_R5_013"}, expected: 70, got: 80
  - {"method":"checkout","params":["S"],"id":"CHK_R5_021"}, expected: 20, got: 30
  - {"method":"checkout","params":["X"],"id":"CHK_R5_026"}, expected: 17, got: 90
