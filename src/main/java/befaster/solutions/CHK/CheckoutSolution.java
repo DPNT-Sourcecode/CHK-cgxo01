@@ -54,7 +54,7 @@ public class CheckoutSolution {
                     int round = Math.round(entry.getValue()/3);
                     sum = sum + round*specialA;
                     int bal = entry.getValue()%3;
-                    sum= sum+item.get("A");
+                    sum= sum+bal*item.get("A");
 
                 }else{
                     sum= sum+entry.getValue()*item.get("A");
@@ -66,7 +66,7 @@ public class CheckoutSolution {
                     int round = Math.round(entry.getValue()/2);
                     sum = sum+round*specialB;
                     int bal = entry.getValue()%2;
-                    sum= sum+item.get("B");
+                    sum= sum+bal*item.get("B");
 
                 }else {
                     sum=sum+entry.getValue()*item.get("B");
