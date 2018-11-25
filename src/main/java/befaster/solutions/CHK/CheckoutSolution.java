@@ -41,7 +41,7 @@ public class CheckoutSolution {
                 }
             }
         }
-        if(matchMap.containsKey("E") && matchMap.get("E")>2){
+        if(matchMap.containsKey("E")){
            int val= matchMap.get("E")/2;
            if(matchMap.containsKey("B")){
                if(matchMap.get("B")>=val){
