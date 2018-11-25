@@ -84,4 +84,14 @@ public class CheckoutSolution {
         return sum;
     }
 
+    public static void main(String[] args) {
+        CheckoutSolution checkoutSolution = new CheckoutSolution();
+        System.out.println(checkoutSolution.checkout("ABCD"));
+    }
+    /*
+    "params":["ABCD"],"id":"CHK_R1_011"}, expected: 115, got: 80
+ - {"method":"checkout","params":["AAAAA"],"id":"CHK_R1_016"}, expected: 230, got: 180
+ - {"method":"checkout","params":["AAAAAA"],"id":"CHK_R1_017"}, expected: 260, got: 310
+     */
+
 }
