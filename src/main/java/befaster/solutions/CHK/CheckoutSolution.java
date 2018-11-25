@@ -49,10 +49,10 @@ public class CheckoutSolution {
              ) {
             if(entry.getKey().equals("A")){
                 if(entry.getValue()==3){
-                    sum = sum+specialA;
+                    sum = sum + specialA;
                 }else if(entry.getValue()>3){
                     int round = Math.round(entry.getValue()/3);
-                    sum = sum+round*specialA;
+                    sum = sum + round*specialA;
                     int bal = entry.getValue()%3;
                     sum= sum+item.get("A");
 
@@ -82,4 +82,14 @@ public class CheckoutSolution {
 
         return sum;
     }
+    public static void main(String[] args) {
+        CheckoutSolution test =new  CheckoutSolution();
+        System.out.println(test.checkout("AAA"));
+    }
+
+    /*
+     {"method":"checkout","params":["AAA"],"id":"CHK_R1_014"}, expected: 130, got: 280
+ - {"method":"checkout","params":["AAAA"],"id":"CHK_R1_015"}, expected: 180, got: 380
+ - {"method":"checkout","params":["AAAAA"],"id":"CHK_R1_016"}, expected: 230, got: 430
+     */
 }
