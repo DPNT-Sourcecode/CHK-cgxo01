@@ -275,8 +275,12 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("FFFFFF"));
+        System.out.println(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
         /*
+        - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
+ - {"method":"checkout","params":["UUUUU"],"id":"CHK_R4_056"}, expected: 160, got: 200
+ - {"method":"checkout","params":["UUUUUUUU"],"id":"CHK_R4_057"}, expected: 240, got: 280
+
         Some requests have failed (7/46). Here are some of them:
  - {"method":"checkout","params":["FF"],"id":"CHK_R3_039"}, expected: 20, got: 10
  - {"method":"checkout","params":["FFFF"],"id":"CHK_R3_041"}, expected: 30, got: 20
