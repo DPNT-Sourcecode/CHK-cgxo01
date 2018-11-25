@@ -153,14 +153,15 @@ public class CheckoutSolution {
         }
         if(matchMap.containsKey("U")){
             int val = matchMap.get("U");
-            if(val!=3) {
+            if(val>3) {
                 int rem =0;
                 if(val==4){
                     rem=1;
-                }
-                for(int i=3;i<=val ;i++){
-                    if(i%3==0){
-                        rem=rem+1;
+                }else {
+                    for (int i = 3; i <= val; i++) {
+                        if (i % 3 == 0) {
+                            rem = rem + 1;
+                        }
                     }
                 }
                 matchMap.replace("U", matchMap.get("U"), matchMap.get("U") - rem);
@@ -281,7 +282,7 @@ public class CheckoutSolution {
 
     public static void main(String[] args) {
         CheckoutSolution checkoutSolution = new CheckoutSolution();
-        System.out.println(checkoutSolution.checkout("UUUU"));
+        System.out.println(checkoutSolution.checkout("HHHHHHHHHHH"));
         /*
          - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 2455
  - {"method":"checkout","params":["UUUU"],"id":"CHK_R4_055"}, expected: 120, got: 80
